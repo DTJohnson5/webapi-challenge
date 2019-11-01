@@ -1,14 +1,13 @@
 const express = require("express");
 const server = express();
 
-const aRouter = require("./actions/actionsRouter.js");
-const tRouter = require("./projects/projectRouter.js");
+const aRouter = require("./action/router.js");
+const tRouter = require("./tasks/router.js");
 
 server.use(express.json());
 server.use(logger);
 server.use("/actions", aRouter);
 server.use("/projects", tRouter);
-
 
 server.get("/", (req, res) => {
   res.status(200).json({ api: "I've got a lovely bunch of coconuts.. a dededidee..." });
